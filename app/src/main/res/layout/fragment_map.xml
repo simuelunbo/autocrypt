@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.simuel.autocrypt.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.MainActivity">
+
+
+        <com.naver.maps.map.MapView
+            android:id="@+id/map_view_naver_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/button_current_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_position"
+            android:onClick="@{() -> vm.updateCurrentPosition()}"
+            app:layout_constraintBottom_toTopOf="@id/text_view_centerInfo"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_centerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text='@{"centerName : "+ vm.center.centerName+ "\n" + "facilityName : "+vm.center.facilityName+ "\n" + "address : " +vm.center.address+ "\n" + "phoneNumber : " +vm.center.phoneNumber+ "\n" + "updatedAt : "+vm.center.updatedAt }'
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

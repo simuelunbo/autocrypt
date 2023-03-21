@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">autocrypt</string>
+    <string name="current_position">현재 위치</string>
+</resources>
